@@ -4,7 +4,7 @@ import random
 
 
 def lotto(request):
-    numbers = random.sample(random(1, 50), 6)
+    numbers = random.sample(range(1, 50), 6)
     numbers = sorted(numbers)
     numbers = "".join(map(str, numbers))
 
