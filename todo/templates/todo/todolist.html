@@ -19,16 +19,19 @@
     {{todo}}
     <br>
     {% for todo in todos %}
-    <h2>{{todo.title}}</h2>
-    <small>{{todo.created}}</small>
+    <small>
+        {{todo.created}}
+    </small>
+    <a href="{% url 'viewtodo' todo.id %}">{{todo.title}}</a>
+
+
     <li>{{todo.text}}</li>
 
     {% if todo.important %}
     <p style="color: red;">重要</p>
 
     {% endif %}
-
-    <hr>
+    <hr style="width: 50%;">
     {% endfor %}
 </body>
 

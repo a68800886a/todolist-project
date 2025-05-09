@@ -8,3 +8,13 @@ def todolist(request):
     print(todos)
     result = {"todos": todos}
     return render(request, "todo/todolist.html", result)
+
+
+def viewtodo(request, id):
+    todo = None
+    try:
+        todo = Todo.objects.get(id=id)
+    except Exception as e:
+        print(e)
+
+    return render(request, "todo/viewtodo.html", {"todo": todo})
