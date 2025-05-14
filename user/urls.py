@@ -18,4 +18,4 @@ Including another URLconf
 from django.urls import path
 from .views import user_resgister, user_login
 
-urlpatterns = [path("resgister/", user_resgister), path("login/", user_login, name)]
+urlpatterns = [path("resgister/", user_resgister), path("login/", user_login)]

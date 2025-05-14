@@ -4,9 +4,10 @@ from .models import Todo
 
 # Create your views here.
 def todolist(request):
+    user = request.user
     todos = Todo.objects.all()
     print(todos)
-    result = {"todos": todos}
+    result = {"todos": todos, "user": user}
     return render(request, "todo/todolist.html", result)
 
 
