@@ -22,8 +22,10 @@
     <small>
         {{todo.created}}
     </small>
-    <a href="{% url 'viewtodo' todo.id %}">{{todo.title}}</a>
-
+    <h1>{{todo.id}}</h1>
+    <h2>
+        <a href="{% url 'viewtodo' todo.id %}">{{todo.title}}</a>
+    </h2>
 
     <li>{{todo.text}}</li>
 
