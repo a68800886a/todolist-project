@@ -4,6 +4,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 
 
+def user_logout(request):
+    logout(request)
+    return redirect("todolist")
+
+
 def user_login(request):
     message = ""
     if request.method == "POST":
