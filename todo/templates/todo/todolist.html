@@ -8,7 +8,7 @@
 {{user.email}}
 <h1>代辦事項</h1>
 <hr>
-{% if not todo %}
+{% if not todos %}
 <h2 style="color: red;">請先登錄或註冊<a href="{% url 'login' %}">Login</a></h2>
 {% endif %}
 
@@ -17,19 +17,29 @@
 <br>
 {% for todo in todos %}
 <small>
-    {{todo.created}}
-</small>
-<h1>{{todo.id}}</h1>
-<h2>
-    <a href="{% url 'viewtodo' todo.id %}">{{todo.title}}</a>
-</h2>
 
-<li>{{todo.text}}</li>
 
-{% if todo.important %}
-<p style="color: red;">重要</p>
+    <h2>
+        <a href="{% url 'viewtodo' todo.id %}">{{todo.title}}</a>
+        {% if todo.important %}
+        <span style="color: red;">重要</span>
+        {% endif %}
+    </h2>
 
-{% endif %}
-<hr style="width: 50%;">
-{% endfor %}
-{% endblock %}
+    {% if todo.text %}
+    <li>{{todo.text|linebreaks }}</li>
+    {% endif %}
+
+
+
+    {% if todo.date_completed %}
+    {{todo.date_completed}}
+    {% endif %}
+
+    <p>
+        <a href="{% url 'deletetodo' todo.id %}" onclick="return confirm('確認是否刪除')">delete</a>
+    </p>
+
+    <hr style="width: 50%;">
+    {% endfor %}
+    {% endblock %}

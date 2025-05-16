@@ -10,4 +10,15 @@
 {% else %}
 {{todo}}
 {% endif %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">更新</button>
+</form>
+{{message}}
+
+
+
+
 {% endblock %}
