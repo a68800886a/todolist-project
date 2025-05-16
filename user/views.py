@@ -49,6 +49,7 @@ def user_resgister(request):
                 user = User.objects.create_user(username=username, password=password1)
                 user.save()
                 message = f"{username},{password1},註冊成功!"
+                return redirect("login")
 
     form = UserCreationForm()
     return render(request, "user/resgister.html", {"form": form, "message": message})

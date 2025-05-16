@@ -7,6 +7,12 @@
 {{user.username}}
 {{user.email}}
 <h1>代辦事項</h1>
+<hr>
+{% if not todo %}
+<h2 style="color: red;">請先登錄或註冊<a href="{% url 'login' %}">Login</a></h2>
+{% endif %}
+
+
 {{todo}}
 <br>
 {% for todo in todos %}
